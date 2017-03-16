@@ -1,27 +1,27 @@
 --Create name type
 CREATE OR REPLACE TYPE name_typ AS OBJECT (
 	title VARCHAR2(8),
-	firstName VARCHAR2(20),
-	surName VARCHAR2(20));
+	firstName VARCHAR2(30),
+	surName VARCHAR2(30));
 
 /
 
 --Create address type
 CREATE OR REPLACE TYPE address_typ AS OBJECT (
-	street VARCHAR2(20),
-	city VARCHAR2(20),
+	street VARCHAR2(30),
+	city VARCHAR2(30),
 	p_code VARCHAR2(8));
 
 /
 
 --Create nested table of mobile phones
-CREATE OR REPLACE TYPE mobilePhones_nested AS TABLE OF VARCHAR2(15)
+CREATE OR REPLACE TYPE mobilePhones_nested AS TABLE OF VARCHAR2(20)
 
 /
 
 --Create phone type
 CREATE OR REPLACE TYPE phone_typ AS OBJECT (
-	homePhone VARCHAR2(15)
+	homePhone VARCHAR2(20),
 	mobilePhone mobilePhones_nested);
 		
 /
@@ -30,13 +30,13 @@ CREATE OR REPLACE TYPE phone_typ AS OBJECT (
 CREATE OR REPLACE TYPE branch_typ AS OBJECT (
 	bID NUMBER,
 	bAddress address_typ,
-	bPhone VARCHAR2(15));
+	bPhone VARCHAR2(20));
 		
 /	
 
 --Create job type
 CREATE OR REPLACE TYPE job_typ AS OBJECT (
-	position VARCHAR2(20),
+	position VARCHAR2(30),
 	salary NUMBER,
 	bID ref branch_typ,
 	joinDate DATE);
@@ -70,9 +70,9 @@ CREATE OR REPLACE TYPE employee_typ UNDER person_typ (
 --Create account type for Account table
 CREATE OR REPLACE TYPE account_typ AS OBJECT (
 	accNum NUMBER,
-	accType VARCHAR2(20),
+	accType VARCHAR2(30),
 	balance NUMBER,
-	bID ref branch_typ
+	bID ref branch_typ,
 	inRate NUMBER,
 	limitOfFreeOD NUMBER,
 	openDate DATE);
@@ -89,17 +89,17 @@ CREATE OR REPLACE TYPE customerAccount_typ AS OBJECT (
 --Create Branch table
 CREATE TABLE branchTable OF branch_typ (
 	bID PRIMARY KEY,
-	CONSTRAINT bStreet_const CHECK (bAddress.street IS NOT NULL),
-	CONSTRAINT bCity_const CHECK (bAddress.city IS NOT NULL),
-	CONSTRAINT bP_code CHECK (bAddress.p_code IS NOT NULL),
-	CONSTRAINT bPhone_const CHECK (bPhone IS NOT NULL));
+	CONSTRAINT bStreet_const CHECK(bAddress.street IS NOT NULL),
+	CONSTRAINT bCity_const CHECK(bAddress.city IS NOT NULL),
+	CONSTRAINT bP_code CHECK(bAddress.p_code IS NOT NULL),
+	CONSTRAINT bPhone_const CHECK(bPhone IS NOT NULL));
 
 /
 
 --Create Account table
 CREATE TABLE accountTable OF account_typ (
 	accNum PRIMARY KEY,
-	CONSTRAINT accType_const CHECK(accType IN ("current", "savings")),
+	CONSTRAINT accType_const CHECK(accType IN ('current', 'savings')),
 	CONSTRAINT balance_const CHECK(balance IS NOT NULL),
 	CONSTRAINT inRate_const CHECK(inRate IS NOT NULL),
 	CONSTRAINT openDate_const CHECK(openDate IS NOT NULL));
@@ -120,7 +120,8 @@ CREATE TABLE customerTable OF customer_typ (
 	CONSTRAINT cStreet_const CHECK(pAddress.street IS NOT NULL),
 	CONSTRAINT cCity_const CHECK(pAddress.city IS NOT NULL),
 	CONSTRAINT cP_Code_const CHECK(pAddress.p_code IS NOT NULL),
-	CONSTRAINT cNiNum_const UNIQUE(niNum));
+	CONSTRAINT cNiNum_const UNIQUE(niNum))
+    NESTED TABLE pPhone.mobilePhone STORE AS cMobilePhones_nested_table;
 	
 /
 
@@ -135,29 +136,30 @@ CREATE TABLE employeeTable OF employee_typ (
 	CONSTRAINT eCity_const CHECK(pAddress.city IS NOT NULL),
 	CONSTRAINT eP_Code_const CHECK(pAddress.p_code IS NOT NULL),
 	CONSTRAINT eNiNum_const UNIQUE(niNum),
-	CONSTRAINT ePosition_const CHECK (eJob.position IN ("Head", "Manager", "Accountant", "Leader", "Cashier")),
+	CONSTRAINT ePosition_const CHECK (eJob.position IN ('Head', 'Manager', 'Accountant', 'Leader', 'Cashier')),
 	CONSTRAINT eSalary_const CHECK(eJob.salary IS NOT NULL),
-	CONSTRAINT eJoinDate_const CHECK(eJob.joinDate IS NOT NULL));
+	CONSTRAINT eJoinDate_const CHECK(eJob.joinDate IS NOT NULL))
+    NESTED TABLE pPhone.mobilePhone STORE AS eM obilePhones_nested_table;
 	
 /
 
-insert into branchTable (bID, bAddress, bPhone) values (1, {'street':'Westerfield','city':'Zhenghu','p_code':'WN8 OW0'}, '86-(411)478-4891');
-insert into branchTable (bID, bAddress, bPhone) values (2, {'street':'Commercial','city':'Santo Antônio do Monte','p_code':'BD9 HG2'}, '55-(243)128-8960');
-insert into branchTable (bID, bAddress, bPhone) values (3, {'street':'Merry','city':'Alexandria','p_code':'ZP6 AI0'}, '20-(591)387-2220');
-insert into branchTable (bID, bAddress, bPhone) values (4, {'street':'Scoville','city':'Buka','p_code':'IH0 XO9'}, '62-(163)129-5169');
-insert into branchTable (bID, bAddress, bPhone) values (5, {'street':'Orin','city':'Jitan','p_code':'XI1 PB9'}, '86-(976)687-6109');
-insert into branchTable (bID, bAddress, bPhone) values (6, {'street':'Basil','city':'Laval','p_code':'ND2 IQ7'}, '33-(959)617-6999');
-insert into branchTable (bID, bAddress, bPhone) values (7, {'street':'Trailsway','city':'Yashalta','p_code':'NL5 QW0'}, '7-(273)645-9765');
-insert into branchTable (bID, bAddress, bPhone) values (8, {'street':'Magdeline','city':'Sumqayıt','p_code':'KF6 RN6'}, '994-(567)573-1198');
-insert into branchTable (bID, bAddress, bPhone) values (9, {'street':'Dryden','city':'Pittsburgh','p_code':'MB6 KV7'}, '1-(412)481-3007');
-insert into branchTable (bID, bAddress, bPhone) values (10, {'street':'Hazelcrest','city':'Breu','p_code':'VG7 BD7'}, '51-(592)482-5606');
-insert into branchTable (bID, bAddress, bPhone) values (11, {'street':'Linden','city':'Dengfang','p_code':'DG6 UT3'}, '86-(593)254-5941');
-insert into branchTable (bID, bAddress, bPhone) values (12, {'street':'Armistice','city':'Bei','p_code':'CI3 VC0'}, '62-(944)990-9309');
-insert into branchTable (bID, bAddress, bPhone) values (13, {'street':'Carioca','city':'Sarmanovo','p_code':'DO1 CX0'}, '7-(330)964-9719');
-insert into branchTable (bID, bAddress, bPhone) values (14, {'street':'Mariners Cove','city':'Föglö','p_code':'RZ4 XA0'}, '358-(618)405-9497');
-insert into branchTable (bID, bAddress, bPhone) values (15, {'street':'Corry','city':'Charlemagne','p_code':'MD1 VE5'}, '1-(940)810-7302');
-insert into branchTable (bID, bAddress, bPhone) values (16, {'street':'Hauk','city':'Longjin','p_code':'GU6 FQ8'}, '86-(475)236-3250');
-insert into branchTable (bID, bAddress, bPhone) values (17, {'street':'Northfield','city':'Rey','p_code':'ZS6 DK4'}, '98-(754)579-0060');
-insert into branchTable (bID, bAddress, bPhone) values (18, {'street':'Moland','city':'Samashki','p_code':'AG6 JX8'}, '7-(317)754-6463');
-insert into branchTable (bID, bAddress, bPhone) values (19, {'street':'Chive','city':'Vereya','p_code':'GD0 IQ8'}, '7-(840)591-1520');
-insert into branchTable (bID, bAddress, bPhone) values (20, {'street':'Portage','city':'San José','p_code':'QU8 KP4'}, '506-(220)966-3351');
+insert into branchTable values (1, address_typ('Westerfield', 'Zhenghu', 'WN8 OW0'), '86-(411)478-4891');
+insert into branchTable values (2, address_typ('Commercial', 'Santo Antônio do Monte', 'BD9 HG2'), '55-(243)128-8960');
+insert into branchTable values (3, address_typ('Merry', 'Alexandria', 'ZP6 AI0'), '20-(591)387-2220');
+insert into branchTable values (4, address_typ('Scoville', 'Buka', 'IH0 XO9'), '62-(163)129-5169');
+insert into branchTable values (5, address_typ('Orin', 'Jitan', 'XI1 PB9'), '86-(976)687-6109');
+insert into branchTable values (6, address_typ('Basil', 'Laval', 'ND2 IQ7'), '33-(959)617-6999');
+insert into branchTable values (7, address_typ('Trailsway', 'Yashalta', 'NL5 QW0'), '7-(273)645-9765');
+insert into branchTable values (8, address_typ('Magdeline', 'Sumqayıt', 'KF6 RN6'), '994-(567)573-1198');
+insert into branchTable values (9, address_typ('Dryden', 'Pittsburgh', 'MB6 KV7'), '1-(412)481-3007');
+insert into branchTable values (10, address_typ('Hazelcrest', 'Breu', 'VG7 BD7'), '51-(592)482-5606');
+insert into branchTable values (11, address_typ('Linden', 'Dengfang', 'DG6 UT3'), '86-(593)254-5941');
+insert into branchTable values (12, address_typ('Armistice', 'Bei', 'CI3 VC0'), '62-(944)990-9309');
+insert into branchTable values (13, address_typ('Carioca', 'Sarmanovo','DO1 CX0'), '7-(330)964-9719');
+insert into branchTable values (14, address_typ('Mariners Cove', 'Föglö', 'RZ4 XA0'), '358-(618)405-9497');
+insert into branchTable values (15, address_typ('Corry', 'Charlemagne', 'MD1 VE5'), '1-(940)810-7302');
+insert into branchTable values (16, address_typ('Hauk', 'Longjin', 'GU6 FQ8'), '86-(475)236-3250');
+insert into branchTable values (17, address_typ('Northfield', 'Rey', 'ZS6 DK4'), '98-(754)579-0060');
+insert into branchTable values (18, address_typ('Moland', 'Samashki', 'AG6 JX8'), '7-(317)754-6463');
+insert into branchTable values (19, address_typ('Chive', 'Vereya', 'GD0 IQ8'), '7-(840)591-1520');
+insert into branchTable values (20, address_typ('Portage', 'San José', 'QU8 KP4'), '506-(220)966-3351');

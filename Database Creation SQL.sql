@@ -91,7 +91,7 @@ CREATE TABLE branchTable OF branch_typ (
 	bID PRIMARY KEY,
 	CONSTRAINT bStreet_const CHECK (bAddress.street IS NOT NULL),
 	CONSTRAINT bCity_const CHECK (bAddress.city IS NOT NULL),
-	CONSTRAINT bP_code CHECK (bAddress.p_code IS NOT NULL)
+	CONSTRAINT bP_code CHECK (bAddress.p_code IS NOT NULL),
 	CONSTRAINT bPhone_const CHECK (bPhone IS NOT NULL));
 
 /

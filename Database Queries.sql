@@ -36,4 +36,4 @@ WHERE
     e.empID = 301;
 --Double concat used to join first names and last names under one column, with a space between the names.
 --Count retrived from nested SELECT
---Mr William's supervisor's name retrived using nested SELECT with 
+--Mr William's supervisor's name retrived using nested SELECT

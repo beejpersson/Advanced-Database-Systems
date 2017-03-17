@@ -184,6 +184,73 @@ insert into accountTable values (114, 'savings', 2849.39, (SELECT REF(b) FROM br
 insert into accountTable values (115, 'current', 7880.63, (SELECT REF(b) FROM branchTable b WHERE b.bID = 6), 1.769, 852, '08-Nov-2011');
 insert into accountTable values (116, 'savings', 2178.58, (SELECT REF(b) FROM branchTable b WHERE b.bID = 2), 0.615, 112, '29-Mar-2000');
 insert into accountTable values (117, 'current', 6568.43, (SELECT REF(b) FROM branchTable b WHERE b.bID = 13), 0.047, 115, '24-Jun-2011');
-insert into accountTable values (118, 'savings', 2552.88, (SELECT REF(b) FROM branchTable b WHERE b.bID = 16), 1.901, 51, '11-May-2012');
 insert into accountTable values (119, 'current', 2878.95, (SELECT REF(b) FROM branchTable b WHERE b.bID = 11), 1.952, 927, '08-Oct-2006');
+insert into accountTable values (118, 'savings', 2552.88, (SELECT REF(b) FROM branchTable b WHERE b.bID = 16), 1.901, 51, '11-May-2012');
 insert into accountTable values (120, 'savings', 1109.63, (SELECT REF(b) FROM branchTable b WHERE b.bID = 7), 0.725, 854, '27-Nov-2009');
+
+--Insert Data into Customer Table
+insert into customerTable values (name_typ('Mrs', 'Marie', 'Wood'), address_typ('Clove', 'Nanlü', 'WU2 CV0'), phone_typ('86-(973)795-1080', mobilePhones_nested('55-(311)508-6350')), 4038409, 201);
+insert into customerTable values (name_typ('Dr', 'Philip', 'Reynolds'), address_typ('Harbort', 'Cluses', 'LW9 AN5'), phone_typ('33-(284)316-9482', mobilePhones_nested('46-(349)353-9587')), 1322817, 202);
+insert into customerTable values (name_typ('Dr', 'Jennifer', 'Moreno'), address_typ('Everett', 'Bitung', 'GH5 OP7'), phone_typ('62-(262)613-9524', mobilePhones_nested('94-(435)933-1310')), 5209023, 203);
+insert into customerTable values (name_typ('Mr', 'Dennis', 'Lynch'), address_typ('Mariners Cove', 'Nevers', 'WB1 TX2'), phone_typ('33-(815)609-5128', mobilePhones_nested('33-(967)281-4015')), 1907303, 204);
+insert into customerTable values (name_typ('Dr', 'Chris', 'Martinez'), address_typ('Erie', 'Norrköping', 'RP6 CD8'), phone_typ('46-(603)719-0431', mobilePhones_nested('84-(272)854-7381')), 2649665, 205);
+insert into customerTable values (name_typ('Mr', 'Ashley', 'King'), address_typ('Sherman', 'Budapest', 'ES9 PV3'), phone_typ('36-(769)694-4995', mobilePhones_nested('1-(312)576-6252')), 3548583, 206);
+insert into customerTable values (name_typ('Mrs', 'Ryan', 'Price'), address_typ('Eastwood', 'Cheongju-si', 'CV0 GO3'), phone_typ('82-(399)549-5861', mobilePhones_nested('86-(849)759-1806')), 9628851, 207);
+insert into customerTable values (name_typ('Dr', 'Joyce', 'Diaz'), address_typ('Farragut', 'Saint-Constant', 'OE7 NO2'), phone_typ('1-(104)381-4381', mobilePhones_nested('63-(960)562-4388')), 5890825, 208);
+insert into customerTable values (name_typ('Dr', 'Michelle', 'Alexander'), address_typ('Arkansas', 'Rungkam', 'QU9 ML4'), phone_typ('62-(969)523-0508', mobilePhones_nested('33-(112)646-3314')), 8503385, 209);
+insert into customerTable values (name_typ('Mr', 'Brian', 'Crawford'), address_typ('Fuller', 'A dos Cunhados', 'FI1 XR3'), phone_typ('351-(855)717-8566', mobilePhones_nested('598-(376)304-2215')), 5597672, 210);
+insert into customerTable values (name_typ('Mr', 'Judith', 'Elliott'), address_typ('Talmadge', 'Ficksburg', 'KX5 BF4'), phone_typ('27-(224)823-8951', mobilePhones_nested('62-(525)253-0854')), 7707824, 211);
+insert into customerTable values (name_typ('Rev', 'Diane', 'Hanson'), address_typ('Starling', 'Psary', 'QQ9 LR5'), phone_typ('48-(277)327-9773', mobilePhones_nested('7-(399)116-9795')), 8385099, 212);
+insert into customerTable values (name_typ('Ms', 'Rachel', 'Ford'), address_typ('Mandrake', 'Wunat', 'VL3 ZG1'), phone_typ('62-(171)582-9914', mobilePhones_nested('381-(227)925-6646')), 9539650, 213);
+insert into customerTable values (name_typ('Ms', 'Kimberly', 'Dixon'), address_typ('7th', 'Chapimarca', 'AV0 ZP7'), phone_typ('51-(902)446-2780', mobilePhones_nested('57-(756)275-3670')), 8099579, 214);
+insert into customerTable values (name_typ('Ms', 'Anthony', 'Harris'), address_typ('Surrey', 'Xiaoshanzi', 'ID3 EV1'), phone_typ('86-(240)810-9443', mobilePhones_nested('234-(524)992-3227')), 2098763, 215);
+insert into customerTable values (name_typ('Mr', 'Sean', 'Simpson'), address_typ('Westend', 'Paris 19', 'KG7 KU9'), phone_typ('33-(684)131-8188', mobilePhones_nested('47-(237)265-0285')), 3820509, 216);
+insert into customerTable values (name_typ('Dr', 'Denise', 'Freeman'), address_typ('Hagan', 'Tunjuk Selatan', 'EH2 GJ1'), phone_typ('62-(933)766-1974', mobilePhones_nested('86-(136)436-1186')), 8056516, 217);
+insert into customerTable values (name_typ('Ms', 'Joyce', 'Ruiz'), address_typ('Monica', 'Karangbayat', 'HD4 BG1'), phone_typ('62-(739)668-6560', mobilePhones_nested('57-(748)968-7518')), 6656503, 218);
+insert into customerTable values (name_typ('Rev', 'Patricia', 'Perkins'), address_typ('Toban', 'Kariya', 'SW6 XZ6'), phone_typ('81-(281)932-3601', mobilePhones_nested('86-(846)462-5793')), 6035904, 219);
+insert into customerTable values (name_typ('Mrs', 'Joan', 'Robertson'), address_typ('Huxley', 'Sumberbatas', 'WC0 VB6'), phone_typ('62-(424)695-9769', mobilePhones_nested('62-(186)635-7895')), 1891046, 220);
+
+
+--Insert Data into CustomerAccount Table
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 205), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 101));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 215), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 101));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 213), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 102));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 213), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 103));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 201), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 110));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 202), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 104));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 207), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 105));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 210), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 111));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 211), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 119));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 209), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 118));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 206), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 107));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 203), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 114));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 218), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 113));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 216), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 111));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 220), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 115));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 204), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 109));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 214), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 112));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 217), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 120));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 208), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 116));
+insert into customerAccountTable values ((SELECT REF(c) FROM customerTable c WHERE c.custID = 208), (SELECT REF(a) FROM accountTable a WHERE a.accNum = 117));
+
+--Insert Data into Employee Table
+insert into employeeTable values (name_typ('Mr', 'Deborah', 'Marshall'), address_typ('Basil', 'Seka', 'KZ6 QH8'), phone_typ('66-(494)846-9327', mobilePhones_nested('48-(247)342-6376')), 2474835, 301, 351, job_typ('Manager', 52111, (SELECT REF(b) FROM branchTable b WHERE b.bID = 4), '13-Jan-2016'));
+insert into employeeTable values (name_typ('Ms', 'Anna', 'Grant'), address_typ('Loomis','Sebadelhe', 'GX9 AN0'), phone_typ('351-(499)203-9607', mobilePhones_nested('86-(719)169-0074')), 9699748, 302, 352, job_typ('Accountant', 58321, (SELECT REF(b) FROM branchTable b WHERE b.bID = 8), '26-Dec-2013'));
+insert into employeeTable values (name_typ('Ms', 'Wayne', 'Jackson'), address_typ('3rd','Bayt Ūmmar', 'JH8 CR7'), phone_typ('970-(774)928-0310', mobilePhones_nested('62-(206)316-4726')), 6090889, 303, 353, job_typ('Head', 51264, (SELECT REF(b) FROM branchTable b WHERE b.bID = 11), '17-Aug-2009'));
+insert into employeeTable values (name_typ('Mr', 'Catherine', 'Bradley'), address_typ('Nelson', 'Tobias Fornier', 'NL3 LO1'), phone_typ('63-(336)673-6227', mobilePhones_nested('374-(628)941-1447')), 5673173, 304, 354, job_typ('Head', 30726, (SELECT REF(b) FROM branchTable b WHERE b.bID = 9), '21-Nov-2001'));
+insert into employeeTable values (name_typ('Mrs', 'Brandon', 'Edwards'), address_typ('Doe Crossing', 'Talhār', 'HB5 VH3'), phone_typ('92-(518)754-8423', mobilePhones_nested('86-(180)136-1940')), 1987198, 305, 355, job_typ('Manager', 31439, (SELECT REF(b) FROM branchTable b WHERE b.bID = 17), '13-Sep-2016'));
+insert into employeeTable values (name_typ('Rev', 'Henry', 'Morrison'), address_typ('Golf Course', 'Ngurensiti', 'OG2 DF9'), phone_typ('62-(164)417-1195', mobilePhones_nested('62-(388)423-8395')), 6065277, 306, 356, job_typ('Leader', 50809, (SELECT REF(b) FROM branchTable b WHERE b.bID = 7), '17-Jun-2000'));
+insert into employeeTable values (name_typ('Mr', 'John', 'Dixon'), address_typ('Valley Edge', 'Bandarlampung', 'VU7 KH0'), phone_typ('62-(818)248-2657', mobilePhones_nested('58-(366)950-8701')), 2160673, 307, 357, job_typ('Manager', 23300, (SELECT REF(b) FROM branchTable b WHERE b.bID = 1), '21-May-2015'));
+insert into employeeTable values (name_typ('Mrs', 'Jean', 'Burns'), address_typ('Anthes', 'Pa Mok', 'HE2 IO9'), phone_typ('66-(837)911-0680', mobilePhones_nested('374-(277)818-5806')), 5405811, 308, 358, job_typ('Head', 39101, (SELECT REF(b) FROM branchTable b WHERE b.bID = 1), '15-Dec-2014'));
+insert into employeeTable values (name_typ('Dr', 'Willie', 'Smith'), address_typ('Fair Oaks', 'Pingpo', 'MC7 GI9'), phone_typ('86-(991)265-7988', mobilePhones_nested('48-(731)108-8030')), 1377578, 309, 359, job_typ('Leader', 51307, (SELECT REF(b) FROM branchTable b WHERE b.bID = 6), '30-Jul-2013'));
+insert into employeeTable values (name_typ('Mrs', 'Brenda', 'Perez'), address_typ('Norway Maple', 'Rukem', 'XL3 HP4'), phone_typ('62-(747)429-4929', mobilePhones_nested('63-(534)752-7153')), 7044732, 310, 360, job_typ('Head', 48788, (SELECT REF(b) FROM branchTable b WHERE b.bID = 8), '26-Nov-2005'));
+insert into employeeTable values (name_typ('Ms', 'Patricia', 'Gonzales'), address_typ('Green', 'Mariano Moreno', 'MG6 QX4'), phone_typ('54-(228)155-4603', mobilePhones_nested('84-(928)223-0082')), 7795373, 311, 361, job_typ('Cashier', 32398, (SELECT REF(b) FROM branchTable b WHERE b.bID = 3), '31-Mar-2000'));
+insert into employeeTable values (name_typ('Mr', 'David', 'Wood'), address_typ('Moulton', 'Manalongon', 'OQ2 EC1'), phone_typ('63-(328)619-7980', mobilePhones_nested('86-(508)521-5726')), 1700622, 312, 362, job_typ('Cashier', 20425, (SELECT REF(b) FROM branchTable b WHERE b.bID = 13), '19-Jan-2010'));
+insert into employeeTable values (name_typ('Mrs', 'Janice', 'Howard'), address_typ('Washington', 'Zwierzyń', 'ST3 ZA7'), phone_typ('48-(903)634-7572', mobilePhones_nested('51-(781)751-0589')), 4372273, 313, 363, job_typ('Cashier', 59101, (SELECT REF(b) FROM branchTable b WHERE b.bID = 16), '18-Nov-2009'));
+insert into employeeTable values (name_typ('Mrs', 'Phillip', 'Day'), address_typ('Mallard', 'Valle de Ángeles', 'TR0 XZ9'), phone_typ('504-(631)565-2953', mobilePhones_nested('63-(537)842-0332')), 5854119, 314, 364, job_typ('Accountant', 22253, (SELECT REF(b) FROM branchTable b WHERE b.bID = 19), '21-Sep-2010'));
+insert into employeeTable values (name_typ('Dr', 'Denise', 'Ford'), address_typ('Susan', 'Jinchang', 'ZF4 VS0'), phone_typ('86-(948)601-3873', mobilePhones_nested('961-(310)916-5787')), 1946388, 315, 365, job_typ('Manager', 34022, (SELECT REF(b) FROM branchTable b WHERE b.bID = 20), '11-Mar-2006'));
+insert into employeeTable values (name_typ('Mrs', 'Brenda', 'Ramos'), address_typ('Mosinee', 'Ransang', 'ZI9 UC4'), phone_typ('63-(164)440-8426', mobilePhones_nested('46-(347)996-1471')), 4946417, 316, 366, job_typ('Leader', 41355, (SELECT REF(b) FROM branchTable b WHERE b.bID = 2), '29-Mar-2003'));
+insert into employeeTable values (name_typ('Mr', 'Joyce', 'Ray'), address_typ('Pierstorff', 'Wengtian', 'NR8 HB1'), phone_typ('86-(645)715-0586', mobilePhones_nested('507-(963)715-0478')), 7408300, 317, 367, job_typ('Accountant', 54884, (SELECT REF(b) FROM branchTable b WHERE b.bID = 6), '13-Aug-2008'));
+insert into employeeTable values (name_typ('Rev', 'Jason', 'Armstrong'), address_typ('Pearson', 'Sukasari', 'KU3 ER3'), phone_typ('62-(162)819-2961', mobilePhones_nested('502-(289)221-5794')), 4069936, 318, 368, job_typ('Head', 20029, (SELECT REF(b) FROM branchTable b WHERE b.bID = 1), '11-Apr-2004'));
+insert into employeeTable values (name_typ('Dr', 'Jessica', 'Freeman'), address_typ('Susan', 'Mandor', 'IG1 XB6'), phone_typ('62-(804)392-6011', mobilePhones_nested('64-(641)636-9118')), 7743806, 319, 369, job_typ('Accountant', 58144, (SELECT REF(b) FROM branchTable b WHERE b.bID = 14), '29-Jul-2015'));
+insert into employeeTable values (name_typ('Mr', 'Brenda', 'Mcdonald'), address_typ('Sutteridge', 'Masalovka', 'XZ1 UM3'), phone_typ('7-(124)542-0676', mobilePhones_nested('55-(715)873-7883')), 8936400, 320, 370, job_typ('Cashier', 33353, (SELECT REF(b) FROM branchTable b WHERE b.bID = 1), '04-Sep-2009'));
